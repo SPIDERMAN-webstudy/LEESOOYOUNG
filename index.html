@@ -1,16 +1,42 @@
 <!doctype html>
 <style>
-    li {
+    a:link{
+        color:black;
+    }
+    a:visited{
+        color:green;
+    }
+    a:hover{
+        color:orange;
+        font-style:oblique;
+    }
+    a:active{
+        color:pink;
+    }
+    a:focus{
+        color:white;
+    }
+    input:focus{
+        background-color:black;
+        color:white;
+    }
+    ul li {
         color:brown;
         text-decoration:underline;
         font-size: 18px;
     }
-    #swim{
-        color:yellowgreen;
-        font-size:50px;
+    #set>li{
+        border:2px solid red;
     }
-    .spade{
-        font-size:70px;
+    #px{
+        font-size:16px;
+    }
+    #rem{
+        font-size:1rem;
+    }
+    p{
+        font-size:5rem;
+        font-family:'Times New Roman', Times, serif;
     }
 </style>
 <html>
@@ -19,16 +45,23 @@
 <meta charset="utf-8">
 </head>
 <body>
-<ol>
-<li class="spade">SPIDE MAN: home coming</li>
-<li id="swim">SPIDER MAN: far from home</li>
-<li class="spade">SPIDER MAN: no way back home</li>
+<ol id="set">
+    <li>SPIDER MAN: home coming</li>
+    <li>SPIDER MAN: far from home<ol>
+        <li>Green Goblin</li>
+        <li>Dr.Octabius</li>
+        </ol>
+    </li>
+    <li>SPIDER MAN: no way back home</li>
 </ol>
+<input>
+<div id="px">PX</div>
+<div id="ren">REM</div>
 <ul>
-<li><a href="1.html">이수영</a></li>
-<li><a href="2.html">서동수</a></li>
-<li><a href="3.html">이승준</a></li>
-<li><a href="4.html">민승준</a></li>
+    <li><a href="1.html">이수영</a></li>
+    <li><a href="2.html">서동수</a></li>
+    <li><a href="3.html">이승준</a></li>
+    <li><a href="4.html">민승준</a></li>
 </ul>
 <p>
 <iframe width="1000" height="500" src="https://www.youtube.com/embed/Bdqv2NUdBZA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
