@@ -1,5 +1,10 @@
 <!doctype html>
 <style>
+    p{
+        border:10px solid blue;
+        padding:20px;
+        margin:40px;
+    }
     a:link{
         color:black;
     }
@@ -38,6 +43,47 @@
         font-size:5rem;
         font-family:'Times New Roman', Times, serif;
     }
+    div{
+        border:5px solid tomato;
+        margin:10px;
+    }
+    #small{
+        border:10px solid black;
+    }
+    #large{
+        border:30px solid black;
+    }
+    #me{
+        position: relative;
+        left:100px;
+        top:100px;
+    }
+    .container{
+        display:flex;
+        flex-direction: column;
+    }
+    header{
+        border-bottom:1px solid gray;
+        padding-left:20px;
+    }
+    footer{
+        border-top:1px solid gray;
+        padding:20px;
+        text-align:center;
+    }
+    .content{
+        display:flex;
+    }
+    .content nav{
+        border-right:1px solid gray;
+    }
+    .content aside{
+        border-left:1px solid gray;
+    }
+    nav, aside{
+        flex-basis:150px;
+        flex-shrink:0;
+    }
 </style>
 <html>
 <head>
@@ -62,15 +108,53 @@
     <li><a href="2.html">서동수</a></li>
     <li><a href="3.html">이승준</a></li>
     <li><a href="4.html">민승준</a></li>
+    <li><a href="flex.html">FLEX</a></li>
 </ul>
+<div class="container">
+    <header>
+        <h1>Champions League</h1>
+    </header>
+    <section class="content">
+        <nav>
+            <ul>
+                <li>Real Madrid</li>
+                <li>PSG</li>
+                <li>Liverpool</li>
+            </ul>
+        </nav>
+        <main>
+            Mbappe is next-generation star.
+        </main>
+        <aside>
+            No.10
+        </aside>
+    </section>
+    <footer>
+        <a href="https://www.instagram.com/championsleague/">UCL</a>
+    </footer>
+</div>
+<a href="multicolumn.html">MULTIVERSE</a>
 <p>
-<iframe width="1000" height="500" src="https://www.youtube.com/embed/Bdqv2NUdBZA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    Bootie 큰 애 내 belt에 대고 춤을 추지 Bootie 큰 애 내 belt에 대고 춤을 추지
+    숙취 기억 안나 단발요정 누구니?
+    매일밤 기관총처럼 bang bang bang
+    내 수익 올라가지만 태돈 same same same
+</p>
+<div id="small">Messi</div>
+<div id="large">Messi</div>
+<div id="other">other</div>
+<div id="parent">
+    parent
+    <div id="me">me</div>
+</div>
+<p>
+    <iframe width="1000" height="500" src="https://www.youtube.com/embed/Bdqv2NUdBZA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
 <a href="https://www.naver.com" target="_blank" title="html5 specification">NAVER</a>
 <br>Hello, <strong>let <u>me</u></strong>
 <p>
-<img src="mbappe.jpg" width="50%">
-Kylian Mbappe
+    <img src="mbappe.jpg" width="50%">
+    Kylian Mbappe
 </p>
 </body>
 </html>
