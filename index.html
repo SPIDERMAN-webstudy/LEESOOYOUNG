@@ -1,171 +1,103 @@
 <!doctype html>
-<style>
-    p{
-        border:10px solid blue;
-        padding:20px;
-        margin:40px;
-    }
-    a:link{
-        color:black;
-    }
-    a:visited{
-        color:green;
-    }
-    a:hover{
-        color:orange;
-        font-style:oblique;
-    }
-    a:active{
-        color:pink;
-    }
-    a:focus{
-        color:white;
-    }
-    input:focus{
-        background-color:black;
-        color:white;
-    }
-    ul li {
-        color:brown;
-        text-decoration:underline;
-        font-size: 18px;
-    }
-    #set>li{
-        border:2px solid red;
-    }
-    #px{
-        font-size:16px;
-    }
-    #rem{
-        font-size:1rem;
-    }
-    p{
-        font-size:5rem;
-        font-family:'Times New Roman', Times, serif;
-    }
-    div{
-        border:5px solid tomato;
-        margin:10px;
-    }
-    #small{
-        border:10px solid black;
-    }
-    #large{
-        border:30px solid black;
-    }
-    #me{
-        position: relative;
-        left:100px;
-        top:100px;
-    }
-    .container{
-        display:flex;
-        flex-direction: column;
-    }
-    header{
-        border-bottom:1px solid gray;
-        padding-left:20px;
-    }
-    footer{
-        border-top:1px solid gray;
-        padding:20px;
-        text-align:center;
-    }
-    .content{
-        display:flex;
-    }
-    .content nav{
-        border-right:1px solid gray;
-    }
-    .content aside{
-        border-left:1px solid gray;
-    }
-    nav, aside{
-        flex-basis:150px;
-        flex-shrink:0;
-    }
-</style>
 <html>
 <head>
-<title>SPIDERMAN</title>
-<meta charset="utf-8">
+    <title>이수영</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="fontello-a83fc64f/css/fontello.css">
+    <style>
+        header{
+            font-size:3rem;
+            font-family:'Times New Roman', Times, serif;
+            text-align: center;
+            border-bottom:1px solid gray;
+        }
+        a:hover{
+            color:orange;
+        }
+        ul li {
+            color:brown;
+            font-size: 18px;
+        }
+        .container{
+            display:flex;
+            flex-direction: column;
+        }
+        footer{
+            border-top:1px solid gray;
+            padding:20px;
+            text-align:center;
+        }
+        .content{
+            display:flex;
+        }
+        .content nav{
+            border-right:1px solid gray;
+        }
+        .content aside{
+            border-left:1px solid gray;
+            font-size:30px;
+        }
+        nav, main, aside{
+            flex-grow:1;
+        }
+        a{
+            font-family: "fontello";
+        }
+        .title{
+            font-size:3rem;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            padding-left:20px;
+        }
+    </style>
 </head>
 <body>
-<ol id="set">
-    <li>SPIDER MAN: home coming</li>
-    <li>SPIDER MAN: far from home<ol>
-        <li>Green Goblin</li>
-        <li>Dr. Octabius</li>
-        </ol>
-    </li>
-    <li>SPIDER MAN: no way back home</li>
-</ol>
-<input>
-<div id="px">PX</div>
-<div id="ren">REM</div>
-<ul>
-    <li><a href="1.html">이수영</a></li>
-    <li><a href="2.html">서동수</a></li>
-    <li><a href="3.html">이승준</a></li>
-    <li><a href="4.html">민승준</a></li>
-    <li><a href="flex.html">FLEX</a></li>
-</ul>
 <div class="container">
     <header>
-        <h1>Champions League</h1>
+        <h1>
+            Nice to meet you. I'm Lee Soo Young.
+        </h1>
     </header>
     <section class="content">
         <nav>
             <ul>
-                <li>Real Madrid</li>
-                <li>PSG</li>
-                <li>Liverpool</li>
+                <li><a href="https://yangkang.sen.ms.kr/">양강중학교</a></li>
+                <li><a href="https://gangseo.sen.hs.kr/">강서고등학교</a></li>
+                <li><a href="http://www.sejong.ac.kr/">세종대학교</a></li>
             </ul>
         </nav>
         <main>
-            Mbappe is next-generation star.
+            <ul>
+                <li><a href="multicolumn.html">MULTIVERSE</a></li>
+                <li><a href="media.html">QUERY</a></li>
+                <li><a href="media2.html">QUERY 2</a></li>
+                <li><a href="float.html">FLOAT</a></li>
+                <li><a href="grid.html">GRID</a></li>
+                <li><a href="background.html">BACKGROUND</a></li>
+                <li><a href="filter.html">FILTER</a></li>
+                <li><a href="blend.html">BLEND</a></li>
+                <li><a href="transform.html">TRANSFORM</a></li>
+                <li><a href="link.html">LINK</a></li>
+                <li><a href="link2.html">LINK 2</a></li>
+                <li><a href="fontello.html">FONTELLO</a></li>
+            </ul>
         </main>
         <aside>
-            No.10
+            <ul>
+            <br>Contact me</br> 
+            <li><a href="https://www.facebook.com/profile.php?id=100008309947439">&#xf308;</a></li>
+            <li><a href="https://www.instagram.com/bokhakwang_/?hl=ko">&#xf16d;</a></li>
+            </ul>
         </aside>
     </section>
     <footer>
-        <a href="https://www.instagram.com/championsleague/">UCL</a>
+        <a href="https://www.youtube.com/channel/UCmg6t-CuHuSk-iTlfqfAGyg">Youtube</a>
     </footer>
 </div>
-<a href="multicolumn.html">MULTIVERSE</a>
-<a href="media.html">QUERY</a>
-<a href="media2.html">QUERY 2</a>
-<a href="float.html">FLOAT</a>
-<a href="grid.html">GRID</a>
-<a href="background.html">BACKGROUND</a>
-<a href="filter.html">FILTER</a>
-<a href="blend.html">BLEND</a>
-<a href="transform.html">TRANSFORM</a>
-<a href="link.html">LINK</a>
-<a href="link2.html">LINK 2</a>
-<a href="fontello.html">FONTELLO</a>
 <p>
-    Bootie 큰 애 내 belt에 대고 춤을 추지 Bootie 큰 애 내 belt에 대고 춤을 추지
-    숙취 기억 안나 단발요정 누구니?
-    매일밤 기관총처럼 bang bang bang
-    내 수익 올라가지만 태돈 same same same
-</p>
-<div id="small">Messi</div>
-<div id="large">Messi</div>
-<div id="other">other</div>
-<div id="parent">
-    parent
-    <div id="me">me</div>
-</div>
-<p>
-    <iframe width="1000" height="500" src="https://www.youtube.com/embed/Bdqv2NUdBZA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
-<a href="https://www.naver.com" target="_blank" title="html5 specification">NAVER</a>
-<br>Hello, <strong>let <u>me</u></strong>
-<p>
-    <img src="mbappe.jpg" width="50%">
-    Kylian Mbappe
+    <div class="title">
+        Shining moments
+    </div>
+       
 </p>
 </body>
 </html>
