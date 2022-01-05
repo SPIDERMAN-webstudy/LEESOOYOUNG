@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 function App() {
   const [loading, setLoading] = useState(true);
   const [coins, setCoins] = useState([]);
-  const [pay, setPay] = useState(1);
+  const [cost, setCost] = useState(1);
   useEffect(() => {
     fetch("https://api.coinpaprika.com/v1/tickers")
       .then((response) => response.json())
@@ -18,7 +18,7 @@ function App() {
     setBudget(event.target.value);
   };
   const BTC = (event) => {
-    setPay(event.target.value);
+    setCost(parseInt(event.target.value));
     setBudget("");
   };
   return (
@@ -30,8 +30,8 @@ function App() {
         <div>
           <select onChange={BTC}>
             {coins.map((coin, name) => (
-              <option key={name} value={coin.quotes.USD.price}>
-                {coin.name} : ${coin.quotes.USD.price} USD
+              <option key={name} value={name}>
+                {coin.name} ({coin.symbol}) : ${coin.quotes.USD.price} USD
               </option>
             ))}
           </select>
@@ -42,7 +42,10 @@ function App() {
             type="number"
             placeholder="Show me the money"
           />
-          $<h2>{budget / pay}</h2>
+          $
+          <h2>
+            {budget / coins[cost].quotes.USD.price} {coins[cost].symbol}
+          </h2>
         </div>
       )}
     </div>
