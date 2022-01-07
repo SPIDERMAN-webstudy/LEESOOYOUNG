@@ -1,0 +1,5 @@
+/{(movie.hasOwnProperty("genres")? ul
+// {movie.genres.map((g)=>(
+// li key={g}>{g}/li
+// ))}
+// /ul : null)}
