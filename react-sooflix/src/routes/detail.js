@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 function Detail() {
-  const [movies, setMovies] = useState();
+  const [movies, setMovies] = useState([]);
   const { id } = useParams();
   const getMovies = async () => {
     const json = await (
