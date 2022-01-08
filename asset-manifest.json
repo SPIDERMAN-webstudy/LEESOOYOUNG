@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/LEESOOYOUNG/react-sooflix/static/js/main.2c50f6db.js",
-    "index.html": "/LEESOOYOUNG/react-sooflix/index.html",
-    "main.2c50f6db.js.map": "/LEESOOYOUNG/react-sooflix/static/js/main.2c50f6db.js.map"
+    "main.js": "/LEESOOYOUNG/static/js/main.bae67831.js",
+    "index.html": "/LEESOOYOUNG/index.html",
+    "main.bae67831.js.map": "/LEESOOYOUNG/static/js/main.bae67831.js.map"
   },
   "entrypoints": [
-    "static/js/main.2c50f6db.js"
+    "static/js/main.bae67831.js"
   ]
 }
