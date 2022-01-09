@@ -5,7 +5,8 @@ import styles from "../css/home.module.css";
 function Home() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
-  const [sort, setSort] = useState("ID");
+  const [sort, setSort] = useState("");
+  const [scroll, setScroll] = useState(0);
   const sortbyYear = () => {
     setSort("year");
   };
@@ -31,6 +32,12 @@ function Home() {
     getMovies();
     setLoading(true);
   }, [sort]);
+  useEffect(() => {
+    handleScroll();
+  }, []);
+  const handleScroll = () => {
+    console.log("scrolled");
+  };
   return (
     <div className={styles.container}>
       {loading ? (
@@ -38,7 +45,7 @@ function Home() {
           <h1>SOOFLIX</h1>
         </div>
       ) : (
-        <div>
+        <div onScroll={setScroll}>
           <button className={styles.top}>TOP</button>
           <header className={styles.bar}>
             <h1 className={styles.logo}>SOOFLIX</h1>
