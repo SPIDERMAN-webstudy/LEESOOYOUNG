@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Movie from "../components/movie";
 import styles from "../css/home.module.css";
 
@@ -19,7 +18,6 @@ function Home() {
   const sortbyLikes = () => {
     setSort("like_count");
   };
-
   const getMovies = async () => {
     const json = await (
       await fetch(
@@ -41,6 +39,7 @@ function Home() {
         </div>
       ) : (
         <div>
+          <button className={styles.top}>TOP</button>
           <header className={styles.bar}>
             <h1 className={styles.logo}>SOOFLIX</h1>
             <nav className={styles.navi}>
