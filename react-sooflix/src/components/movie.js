@@ -21,7 +21,7 @@ function Movie({
           <Link to={`/movie/${id}`}>{title}</Link>
         </h2>
         <p>{summary.length > 235 ? `${summary.slice(0, 235)}...` : summary}</p>
-        <h3 className={styles.rating}>⭐ {rating}</h3>
+        <h3 className={styles.rating}>⭐ {rating} / 10</h3>
         <h3 className={styles.year}>{year}</h3>
       </div>
     </div>

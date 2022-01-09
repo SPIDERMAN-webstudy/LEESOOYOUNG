@@ -27,7 +27,7 @@ function Detail() {
       ) : (
         <div>
           <h1>
-            <Link id={styles.back} to={`${process.env.PUBLIC_URL}/`}>
+            <Link className={styles.back} to={`${process.env.PUBLIC_URL}/`}>
               SOOFLIX
             </Link>
           </h1>
@@ -54,19 +54,19 @@ function Detail() {
                 ))}
               </ul>
             </div>
-            {movies.yt_trailer_code !== "" ? (
-              <div className={styles.Youtube}>
+            <span>
+              {movies.yt_trailer_code !== "" ? (
                 <iframe
-                  width="900"
-                  height="600"
+                  width="100%"
+                  height="100%"
                   src={`https://www.youtube.com/embed/${movies.yt_trailer_code}`}
                   title="YouTube video player"
-                  frameborder="0"
+                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
-              </div>
-            ) : null}
+              ) : null}
+            </span>
           </div>
         </div>
       )}

@@ -44,11 +44,17 @@
   }
 }
 
-#back {
+.back {
   text-decoration: none;
   color: inherit;
   display: grid;
   place-items: center;
+  font-size: 2rem;
+  transition: 0.4s ease;
+}
+
+.back:hover {
+  color: rgba(194, 73, 73, 0.7);
 }
 
 .movie {
@@ -68,6 +74,7 @@
   list-style: none;
   padding: 0;
   display: flex;
+  font-weight: bold;
 }
 
 .genres li {

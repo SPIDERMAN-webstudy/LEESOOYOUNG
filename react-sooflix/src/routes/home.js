@@ -6,10 +6,24 @@ import styles from "../css/home.module.css";
 function Home() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+  const [sort, setSort] = useState("ID");
+  const sortbyYear = () => {
+    setSort("year");
+  };
+  const sortbyRate = () => {
+    setSort("rating");
+  };
+  const sortbyDownloads = () => {
+    setSort("download_count");
+  };
+  const sortbyLikes = () => {
+    setSort("like_count");
+  };
+
   const getMovies = async () => {
     const json = await (
       await fetch(
-        `https://yts.mx/api/v2/list_movies.json?minimum_rating=0.1&sort_by=like_count`
+        `https://yts.mx/api/v2/list_movies.json?minimum_rating=0.1&sort_by=${sort}`
       )
     ).json();
     setMovies(json.data.movies);
@@ -17,8 +31,8 @@ function Home() {
   };
   useEffect(() => {
     getMovies();
-  }, []);
-  console.log(movies);
+    setLoading(true);
+  }, [sort]);
   return (
     <div className={styles.container}>
       {loading ? (
@@ -27,13 +41,25 @@ function Home() {
         </div>
       ) : (
         <div>
-          <nav className={styles.logo}>
-            <h1>
-              <Link id={styles.back} to={`${process.env.PUBLIC_URL}/`}>
-                SOOFLIX
-              </Link>
-            </h1>
-          </nav>
+          <header className={styles.bar}>
+            <h1 className={styles.logo}>SOOFLIX</h1>
+            <nav className={styles.navi}>
+              <div className={styles.sort}>
+                <span id={styles.recent} onClick={sortbyYear}>
+                  &emsp;📅Recent&emsp;
+                </span>
+                <span id={styles.rating} onClick={sortbyRate}>
+                  &emsp;💯High Rating&emsp;
+                </span>
+                <span id={styles.download} onClick={sortbyDownloads}>
+                  &emsp;⬇️Most Downloads&emsp;
+                </span>
+                <span id={styles.like} onClick={sortbyLikes}>
+                  &emsp;👍Most Likes&emsp;
+                </span>
+              </div>
+            </nav>
+          </header>
           <div className={styles.movies}>
             {movies.map((movie) => (
               <Movie
