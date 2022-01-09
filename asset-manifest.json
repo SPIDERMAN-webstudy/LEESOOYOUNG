@@ -1,10 +1,13 @@
 {
   "files": {
-    "main.js": "/LEESOOYOUNG/static/js/main.bae67831.js",
+    "main.css": "/LEESOOYOUNG/static/css/main.f450743f.css",
+    "main.js": "/LEESOOYOUNG/static/js/main.9dd92a18.js",
     "index.html": "/LEESOOYOUNG/index.html",
-    "main.bae67831.js.map": "/LEESOOYOUNG/static/js/main.bae67831.js.map"
+    "main.f450743f.css.map": "/LEESOOYOUNG/static/css/main.f450743f.css.map",
+    "main.9dd92a18.js.map": "/LEESOOYOUNG/static/js/main.9dd92a18.js.map"
   },
   "entrypoints": [
-    "static/js/main.bae67831.js"
+    "static/css/main.f450743f.css",
+    "static/js/main.9dd92a18.js"
   ]
 }
