@@ -1,6 +1,6 @@
 .movie {
   display: grid;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #ffffff80;
   margin-bottom: 60px;
   padding: 20px;
   border-radius: 5px;
@@ -38,4 +38,16 @@
 
 .title:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 770px) {
+  .movie {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+  }
+  .img {
+    position: relative;
+    top: -40px;
+  }
 }

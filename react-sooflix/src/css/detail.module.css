@@ -57,6 +57,10 @@
   color: rgba(194, 73, 73, 0.7);
 }
 
+.detail {
+  padding-left: 20px;
+}
+
 .movie {
   border-top: 1px solid rgb(211, 197, 175);
   display: grid;
@@ -66,8 +70,14 @@
 }
 
 .img {
-  max-width: 300px;
+  max-width: 400px;
   width: 100%;
+  padding-bottom: 20px;
+}
+
+.youtube {
+  width: 720px;
+  height: 480px;
 }
 
 .genres {
@@ -79,4 +89,34 @@
 
 .genres li {
   margin-right: 10px;
+}
+
+@media (max-width: 1500px) {
+  .movie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 750px) {
+  .youtube {
+    width: 480px;
+    height: 320px;
+  }
+}
+
+@media (max-width: 510px) {
+  .youtube {
+    width: 360px;
+    height: 240px;
+  }
+}
+
+@media (max-width: 360px) {
+  .youtube {
+    width: 240px;
+    height: 160px;
+  }
 }

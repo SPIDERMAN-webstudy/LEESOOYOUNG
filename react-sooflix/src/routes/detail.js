@@ -57,8 +57,7 @@ function Detail() {
             <span>
               {movies.yt_trailer_code !== "" ? (
                 <iframe
-                  width="100%"
-                  height="100%"
+                  className={styles.youtube}
                   src={`https://www.youtube.com/embed/${movies.yt_trailer_code}`}
                   title="YouTube video player"
                   frameBorder="0"
