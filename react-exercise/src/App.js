@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import ErrorModal from "./ErrorModal";
 
 function App() {
   const [username, setUsername] = useState("");
   const [userage, setUserage] = useState("");
   const [userlist, setUserlist] = useState([]);
+  const [error, setError] = useState();
   const insertUsername = (event) => {
     setUsername(event.target.value);
   };
@@ -13,15 +15,24 @@ function App() {
   const userRegister = (event) => {
     event.preventDefault();
     if (username.trim().length === 0) {
-      alert("Please enter your name.");
+      setError({
+        title: "Invalid Input",
+        message: "Please enter your name.",
+      });
       return;
     }
     if (userage.trim().length === 0) {
-      alert("Please enter your age.");
+      setError({
+        title: "Invalid Input",
+        message: "Please enter your age.",
+      });
       return;
     }
-    if (userage < 0) {
-      alert("Don't lie!");
+    if (userage <= 0) {
+      setError({
+        title: "Invalid Input",
+        message: "Don't lie!",
+      });
       return;
     }
     setUserlist((item) => {
@@ -36,8 +47,18 @@ function App() {
       {user.name} {user.age}
     </li>
   ));
+  const errorHandler = () => {
+    setError(null);
+  };
   return (
     <div>
+      {error && (
+        <ErrorModal
+          title={error.title}
+          message={error.message}
+          onConfirm={errorHandler}
+        />
+      )}
       <form onSubmit={userRegister}>
         <div>
           <label> Username </label>
