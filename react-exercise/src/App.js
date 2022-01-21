@@ -1,7 +1,11 @@
-import { useState } from "react";
+import React, { useRef, useState } from "react";
 import ErrorModal from "./ErrorModal";
+import Wrapper from "./Wrapper";
 
 function App() {
+  const nameInputRef = useRef();
+  const ageInputRef = useRef();
+
   const [username, setUsername] = useState("");
   const [userage, setUserage] = useState("");
   const [userlist, setUserlist] = useState([]);
@@ -14,21 +18,23 @@ function App() {
   };
   const userRegister = (event) => {
     event.preventDefault();
-    if (username.trim().length === 0) {
+    const enteredName = nameInputRef.current.value;
+    const enteredAge = ageInputRef.current.value;
+    if (enteredName === 0) {
       setError({
         title: "Invalid Input",
         message: "Please enter your name.",
       });
       return;
     }
-    if (userage.trim().length === 0) {
+    if (enteredAge === 0) {
       setError({
         title: "Invalid Input",
         message: "Please enter your age.",
       });
       return;
     }
-    if (userage <= 0) {
+    if (enteredAge <= 0) {
       setError({
         title: "Invalid Input",
         message: "Don't lie!",
@@ -36,22 +42,22 @@ function App() {
       return;
     }
     setUserlist((item) => {
-      const updatedList = [{ name: username, age: userage }, ...item];
+      const updatedList = [{ name: enteredName, age: enteredAge }, ...item];
       return updatedList;
     });
-    setUsername("");
-    setUserage("");
+    nameInputRef.current.value = "";
+    ageInputRef.current.value = "";
   };
   const nameList = userlist.map((user) => (
     <li key={user.name}>
-      {user.name} {user.age}
+      {user.name} ({user.age} years old)
     </li>
   ));
   const errorHandler = () => {
     setError(null);
   };
   return (
-    <div>
+    <React.Fragment>
       {error && (
         <ErrorModal
           title={error.title}
@@ -62,14 +68,14 @@ function App() {
       <form onSubmit={userRegister}>
         <div>
           <label> Username </label>
-          <input type="text" onChange={insertUsername} />
+          <input type="text" ref={nameInputRef} />
           <label> Age (Years) </label>
-          <input type="number" onChange={insertUserage} />
+          <input type="number" ref={ageInputRef} />
         </div>
         <button type="submit">Add User</button>
       </form>
       <ul>{nameList}</ul>
-    </div>
+    </React.Fragment>
   );
 }
 
