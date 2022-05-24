@@ -1,8 +1,5 @@
-import Script from "next/script";
 export default function Login() {
-  return (
-    <div>
-      <Script src="https://developers.kakao.com/sdk/js/kakao.js" />
-    </div>
-  );
+  Kakao.init("fb51701a34840473c4700239b6453a3d");
+  Kakao.isInitialized();
+  return <div></div>;
 }
