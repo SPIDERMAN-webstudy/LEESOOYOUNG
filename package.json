@@ -20,5 +20,10 @@
     "eslint": "^8.5.0",
     "eslint-plugin-html": "^6.2.0",
     "eslint-plugin-react": "^7.28.0"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "qs": "^6.10.3",
+    "react-router-dom": "^6.3.0"
   }
 }
