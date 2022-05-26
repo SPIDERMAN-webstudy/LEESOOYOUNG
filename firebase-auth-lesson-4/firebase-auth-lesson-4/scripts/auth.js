@@ -1,3 +1,8 @@
+// get data
+db.collection('guides').get().then(snapshot => {
+  setupGuides(snapshot.docs);
+});
+
 // auth 상태 변화 확인
 auth.onAuthStateChanged(user => {
   if (user) {
