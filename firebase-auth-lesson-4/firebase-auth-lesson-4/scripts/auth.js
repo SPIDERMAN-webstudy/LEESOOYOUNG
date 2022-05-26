@@ -1,5 +1,6 @@
 // auth 상태 변화 확인
 auth.onAuthStateChanged((user) => {
+  console.log("user status changed!!!");
   if (user) {
     db.collection("guides").onSnapshot(
       (snapshot) => {
