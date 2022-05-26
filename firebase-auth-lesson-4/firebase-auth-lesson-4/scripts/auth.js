@@ -1,11 +1,10 @@
 // auth 상태 변화 확인
 auth.onAuthStateChanged(user => {
   if (user) {
-    console.log('user logged in: ', user);
-    db.collection('guides').get().then(snapshot => {
+    db.collection('guides').onSnapshot(snapshot => {
       setupGuides(snapshot.docs);
       setupUI(user);
-    });
+    }, err => console.log(err.message));
   } else {
     console.log('user logged out');
     setupUI()
