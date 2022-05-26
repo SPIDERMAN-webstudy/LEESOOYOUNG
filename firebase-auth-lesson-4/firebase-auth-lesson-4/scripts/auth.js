@@ -1,32 +1,37 @@
 // auth 상태 변화 확인
-auth.onAuthStateChanged(user => {
+auth.onAuthStateChanged((user) => {
   if (user) {
-    db.collection('guides').onSnapshot(snapshot => {
-      setupGuides(snapshot.docs);
-      setupUI(user);
-    }, err => console.log(err.message));
+    db.collection("guides").onSnapshot(
+      (snapshot) => {
+        setupGuides(snapshot.docs);
+        setupUI(user);
+      },
+      (err) => console.log(err.message)
+    );
   } else {
-    console.log('user logged out');
-    setupUI()
+    setupUI();
     setupGuides([]);
   }
-})
+});
 
 // new guide 생성
-const createForm = document.querySelector('#create-form');
-createForm.addEventListener('submit', (e) => {
+const createForm = document.querySelector("#create-form");
+createForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  db.collection('guides').add({
-    title: createForm.title.value,
-    content: createForm.content.value
-  }).then(() => {
-    // 생성 모달 닫기 & form 리셋
-    const modal = document.querySelector('#modal-create');
-    M.Modal.getInstance(modal).close();
-    createForm.reset();
-  }).catch(err => {
-    console.log(err.message);
-  });
+  db.collection("guides")
+    .add({
+      title: createForm.title.value,
+      content: createForm.content.value,
+    })
+    .then(() => {
+      // 생성 모달 닫기 & form 리셋
+      const modal = document.querySelector("#modal-create");
+      M.Modal.getInstance(modal).close();
+      createForm.reset();
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 });
 
 // 회원가입
@@ -39,12 +44,20 @@ signupForm.addEventListener("submit", (e) => {
   const password = signupForm["signup-password"].value;
 
   // 메일로 회원가입
-  auth.createUserWithEmailAndPassword(email, password).then((cred) => {
-    // 회원가입 모달 닫기 & form 리셋
-    const modal = document.querySelector("#modal-signup");
-    M.Modal.getInstance(modal).close();
-    signupForm.reset();
-  });
+  auth
+    .createUserWithEmailAndPassword(email, password)
+    .then((cred) => {
+      // 추가 가입정보 전달 + UID 연동
+      return db.collection("users").doc(cred.user.uid).set({
+        bio: signupForm["signup-bio"].value,
+      });
+    })
+    .then(() => {
+      // 회원가입 모달 닫기 & form 리셋
+      const modal = document.querySelector("#modal-signup");
+      M.Modal.getInstance(modal).close();
+      signupForm.reset();
+    });
 });
 
 // 로그아웃
