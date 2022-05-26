@@ -13,6 +13,23 @@ auth.onAuthStateChanged(user => {
   }
 })
 
+// new guide 생성
+const createForm = document.querySelector('#create-form');
+createForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  db.collection('guides').add({
+    title: createForm.title.value,
+    content: createForm.content.value
+  }).then(() => {
+    // 생성 모달 닫기 & form 리셋
+    const modal = document.querySelector('#modal-create');
+    M.Modal.getInstance(modal).close();
+    createForm.reset();
+  }).catch(err => {
+    console.log(err.message);
+  });
+});
+
 // 회원가입
 const signupForm = document.querySelector("#signup-form");
 signupForm.addEventListener("submit", (e) => {
