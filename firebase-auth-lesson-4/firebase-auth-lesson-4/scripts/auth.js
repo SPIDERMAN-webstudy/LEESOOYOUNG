@@ -63,16 +63,15 @@ signupForm.addEventListener("submit", (e) => {
 
 // 로그아웃
 const logout = document.querySelector("#logout");
-logout.addEventListener("click", (e) => {
+logout.addEventListener("click", async (e) => {
   e.preventDefault();
-  auth.signOut().then(() => {
-    console.log("user signed out");
-  });
+  await auth.signOut();
+  console.log("user signed out");
 });
 
 // 로그인
 const loginForm = document.querySelector("#login-form");
-loginForm.addEventListener("submit", (e) => {
+loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   // 유저 정보
@@ -80,11 +79,10 @@ loginForm.addEventListener("submit", (e) => {
   const password = loginForm["login-password"].value;
 
   // 유저 로그인
-  auth.signInWithEmailAndPassword(email, password).then((cred) => {
-    console.log(cred.user);
-    // 로그인 모달 닫기 & form 리셋
-    const modal = document.querySelector("#modal-login");
-    M.Modal.getInstance(modal).close();
-    loginForm.reset();
-  });
+  const cred = await auth.signInWithEmailAndPassword(email, password);
+  console.log(cred.user);
+  // 로그인 모달 닫기 & form 리셋
+  const modal = document.querySelector("#modal-login");
+  M.Modal.getInstance(modal).close();
+  loginForm.reset();
 });
