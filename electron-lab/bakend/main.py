@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 import pyupbit
 import time
+from soo_module import soomain, xrp_price
+from pydantic import BaseModel
+# uvicorn main:app --reload
 
 app = FastAPI()
 
@@ -24,14 +27,14 @@ def hello():
 
 @app.get("/price1")
 def price1():
-    while True:
-        time.sleep(0.3)
-        price = pyupbit.get_current_price("KRW-BTC")
-        return {"message" : price}
+    # return {"message": soomain()}
+    soomain()
 
 @app.get("/price2")
 def price2():
-    while True:
-        time.sleep(0.3)
-        price = pyupbit.get_current_price("KRW-XRP")
-        return {"message" : price}
+    # return {"message": xrp_price()}
+    xrp_price()
+    # while True:
+    #     time.sleep(0.3)
+    #     price = pyupbit.get_current_price("KRW-XRP")
+    #     return {"message" : price}
