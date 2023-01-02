@@ -17,12 +17,18 @@
   },
   "homepage": "https://github.com/SPIDERMAN-webstudy/LEESOOYOUNG#readme",
   "devDependencies": {
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
+    "electron": "^22.0.0",
+    "electron-builder": "^23.6.0",
     "eslint": "^8.5.0",
     "eslint-plugin-html": "^6.2.0",
-    "eslint-plugin-react": "^7.28.0"
+    "eslint-plugin-react": "^7.28.0",
+    "wait-on": "^7.0.1"
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "electron-is-dev": "^2.0.0",
     "firebase": "^9.8.1",
     "qs": "^6.10.3",
     "react-router-dom": "^6.3.0"
