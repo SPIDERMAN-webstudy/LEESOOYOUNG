@@ -6,6 +6,9 @@ from soo_module import soomain, xrp_price
 from pydantic import BaseModel
 # uvicorn main:app --reload
 
+class Item(BaseModel):
+    signal: bool = True
+
 app = FastAPI()
 
 origins = [
@@ -25,16 +28,17 @@ app.add_middleware(
 def hello():
     return {"message": "안녕하세요 애플"}
 
-@app.get("/price1")
-def price1():
-    # return {"message": soomain()}
-    soomain()
+@app.post("/price1")
+def price1(item: Item):
+    while item.signal:
+        time.sleep(0.3)
+        price = pyupbit.get_current_price("KRW-BTC")
+        print(price)
+    return price
 
 @app.get("/price2")
 def price2():
-    # return {"message": xrp_price()}
-    xrp_price()
-    # while True:
-    #     time.sleep(0.3)
-    #     price = pyupbit.get_current_price("KRW-XRP")
-    #     return {"message" : price}
+    for i in range(5):
+        time.sleep(0.3)
+        price = pyupbit.get_current_price("KRW-XRP")
+        print(price)
