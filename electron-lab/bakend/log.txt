@@ -1,0 +1,7 @@
+SOOYOUNG
+===============2023-01-04 18:09:28===============
+Traceback (most recent call last):
+  File "/Users/young/Desktop/codes/LEESOOYOUNG/electron-lab/bakend/soo_module.py", line 21, in __init__
+    print(self.bitget.fetch_balance()['TRX'])
+KeyError: 'TRX'
+
