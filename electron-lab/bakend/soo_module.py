@@ -6,13 +6,13 @@ import traceback
 
 class bitgetClass():
     def __init__(self, name):
-        access = 
-        secret = 
+        access = "bg_5e7686acce8321021790c17319b512f0"
+        secret = "c0e9a434a84eb548263c0eabde64a9d1d35bc82129e0a040b7150bf31bc14733"
         print(access, secret)
         self.bitget = ccxt.bitget({
             'apiKey': access,
             'secret': secret,
-            'password': ,
+            'password': "ab236699",
             'options': {
                 'defaultType': 'swap'
                 },
@@ -30,7 +30,7 @@ class bitgetClass():
         print("API 정상")
         # self.bitget.set_margin_mode("fixed") # crossed = cross, fixed = isolated
         self.name = name
-        self.ticker = "TRX/USDT"
+        self.ticker = "BTC/USDT:USDT"
         self.bong = "1m"
         self.interval = "minute1"
         self.liq_pos = None
@@ -39,7 +39,7 @@ class bitgetClass():
         self.longer = 0
         self.shorter = 0
         self.length = 0
-        self.amount = 559.1125
+        self.amount = 100
         self.buy_flag = False
         self.sell_flag = False
         self.holding = False
@@ -55,10 +55,15 @@ class bitgetClass():
     def balance(self):
         for i in self.df:
             print(i)
+    
+    def dicker(self):
+        print(self.ticker)
+        self.price = self.bitget.fetch_ticker(self.ticker)
+        print(self.price['last'])
 
     def buy(self):
-        print(self.bitget.create_limit_buy_order(self.ticker, 100, 0.05508))
-    
+        print(self.bitget.create_limit_buy_order(self.ticker, 0.001, 16790))
+
     def sell(self):
-        print(self.bitget.create_limit_sell_order(self.ticker, self.amount, 0.05565))
+        print(self.bitget.create_limit_sell_order(self.ticker, 0.001, 16850))
 

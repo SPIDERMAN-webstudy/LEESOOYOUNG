@@ -3,21 +3,8 @@ import "./App.css";
 
 function App() {
   const [brice, setBrice] = useState(0);
-  const [xrice, setXrice] = useState(0);
   const [ticker, setTicker] = useState("");
-
-  // fetch("http://127.0.0.1:8000/price1", {
-  //   method: "GET",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  // })
-  //   .then((resp) => resp.json())
-  //   .then((data) => {
-  //     console.log(data.message);
-  //     setPrice(data.message);
-  //   })
-  //   .catch((error) => console.log(error));
+  const [cross, setCross] = useState("fixed");
 
   const btcHandler = () => {
     console.log("price start");
@@ -49,6 +36,7 @@ function App() {
       },
       body: JSON.stringify({
         signal: false,
+        ticker: ticker,
       }),
     })
       .then((resp) => resp.json())
@@ -60,67 +48,44 @@ function App() {
     console.log("getPrice end");
   };
 
-  const xrpHandler = () => {
-    console.log("price start");
-    fetch("http://127.0.0.1:8000/price2", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        signal: true,
-      }),
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data.message);
-        setXrice(data.message);
-      })
-      .catch((error) => console.log(error));
-    console.log("getPrice end");
-  };
-
-  const xrpStopper = () => {
-    console.log("price start");
-    fetch("http://127.0.0.1:8000/price2", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        signal: false,
-      }),
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data.message);
-        setXrice(data.message);
-      })
-      .catch((error) => console.log(error));
-    console.log("getPrice end");
-  };
-
   const tickerHandler = (e) => {
     setTicker(e.target.value);
     console.log(ticker);
   };
 
+  const crossHandler = (e) => {
+    console.log(e.target.value);
+    setCross(e.target.value);
+    console.log(cross);
+  };
+
   return (
     <div id="app">
       <div>
-        Server 1 <button onClick={btcHandler}>BTC_START</button>
-        <button onClick={btcStopper}>BTC_STOP</button>
         <div>
           심볼:{" "}
           <input type="text" onChange={tickerHandler} value={ticker}></input>
         </div>
+        <div>
+          <input
+            type="radio"
+            name="chk_info"
+            value="crossed"
+            onChange={crossHandler}
+          />
+          교차/cross
+          <input
+            type="radio"
+            name="chk_info"
+            value="fixed"
+            onChange={crossHandler}
+            checked={true}
+          />
+          격리/isolated
+        </div>
+        <button onClick={btcHandler}>반복시작</button>
+        <button onClick={btcStopper}>정지</button>
       </div>
-      {/* <div>
-        Server 2<button onClick={xrpHandler}>XRP_START</button>
-        <button onClick={xrpStopper}>XRP_STOP</button>
-      </div>
-      <h2>BTC : {brice}</h2>
-      <h2>XRP : {xrice}</h2> */}
     </div>
   );
 }
