@@ -8,11 +8,12 @@ class bitgetClass():
     def __init__(self, name):
         access = "bg_5e7686acce8321021790c17319b512f0"
         secret = "c0e9a434a84eb548263c0eabde64a9d1d35bc82129e0a040b7150bf31bc14733"
+        password = "ab236699"
         print(access, secret)
         self.bitget = ccxt.bitget({
             'apiKey': access,
             'secret': secret,
-            'password': "ab236699",
+            'password': password,
             'options': {
                 'defaultType': 'swap'
                 },
