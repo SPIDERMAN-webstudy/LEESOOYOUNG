@@ -5,3 +5,40 @@ Traceback (most recent call last):
     print(self.bitget.fetch_balance()['TRX'])
 KeyError: 'TRX'
 
+SOOYOUNG
+===============2023-01-09 21:05:01===============
+Traceback (most recent call last):
+  File "/Users/young/Desktop/codes/LEESOOYOUNG/electron-lab/bakend/soo_module.py", line 25, in __init__
+    self.df = self.bitget.fetch_balance()
+AttributeError: 'bitgetClass' object has no attribute 'bitget'
+
+SOOYOUNG
+===============2023-01-09 21:05:24===============
+Traceback (most recent call last):
+  File "/Users/young/opt/anaconda3/envs/coin/lib/python3.10/site-packages/ccxt/base/exchange.py", line 620, in fetch
+    response.raise_for_status()
+  File "/Users/young/opt/anaconda3/envs/coin/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://api.bitget.com/api/mix/v1/account/accounts?productType=UMCBL
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/young/Desktop/codes/LEESOOYOUNG/electron-lab/bakend/soo_module.py", line 25, in __init__
+    self.df = self.bitget.fetch_balance()
+  File "/Users/young/opt/anaconda3/envs/coin/lib/python3.10/site-packages/ccxt/bitget.py", line 1649, in fetch_balance
+    response = getattr(self, method)(self.extend(request, query))
+  File "/Users/young/opt/anaconda3/envs/coin/lib/python3.10/site-packages/ccxt/base/exchange.py", line 500, in inner
+    return entry(_self, **inner_kwargs)
+  File "/Users/young/opt/anaconda3/envs/coin/lib/python3.10/site-packages/ccxt/base/exchange.py", line 2612, in request
+    return self.fetch2(path, api, method, params, headers, body, config, context)
+  File "/Users/young/opt/anaconda3/envs/coin/lib/python3.10/site-packages/ccxt/base/exchange.py", line 2609, in fetch2
+    return self.fetch(request['url'], request['method'], request['headers'], request['body'])
+  File "/Users/young/opt/anaconda3/envs/coin/lib/python3.10/site-packages/ccxt/base/exchange.py", line 636, in fetch
+    skip_further_error_handling = self.handle_errors(http_status_code, http_status_text, url, method, headers, http_response, json_response, request_headers, request_body)
+  File "/Users/young/opt/anaconda3/envs/coin/lib/python3.10/site-packages/ccxt/bitget.py", line 3013, in handle_errors
+    self.throw_exactly_matched_exception(self.exceptions['exact'], errorCode, feedback)
+  File "/Users/young/opt/anaconda3/envs/coin/lib/python3.10/site-packages/ccxt/base/exchange.py", line 2882, in throw_exactly_matched_exception
+    raise exact[string](message)
+ccxt.base.errors.AuthenticationError: bitget {"code":"40006","msg":"Invalid ACCESS_KEY","requestTime":1673265923173,"data":null}
+
