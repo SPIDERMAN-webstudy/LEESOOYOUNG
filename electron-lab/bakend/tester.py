@@ -35,13 +35,16 @@ orderlist = []
 # print(bitget.bitget.fetch_trades(ticker))
 #### id로 trade 불러오기
 # print(float(bitget.bitget.fetch_order_trades(id, ticker)[0]['info']['price']))
-df = bitget.bitget.fetch_open_orders(ticker)
-for i in df:
-    if i['side'] == 'buy':
-        orderlist.append({'id': i['id'], 'price':i['price']})
-    orderlist = sorted(orderlist, key=(lambda x: x['price'])) # 롱기준 정렬
+#### open_order 불러오기
+# df = bitget.bitget.fetch_open_orders(ticker)
+# for i in df:
+#     if i['side'] == 'buy':
+#         orderlist.append({'id': i['id'], 'price':i['price']})
+#     orderlist = sorted(orderlist, key=(lambda x: x['price'])) # 롱기준 정렬
 # orderlist = sorted(orderlist, key=(lambda x: x['price']), reverse=True) # 숏기준 정렬
-print(orderlist)
+# print(orderlist)
+print(bitget.bitget.fetch_position(ticker))
+print(bitget.bitget.fetch_position(ticker)['info']['available'])
 # bitget.balance()
 # bitget.buy()
 # bitget.sell()
